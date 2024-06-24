@@ -5,7 +5,7 @@ body{
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: #f07167;
+    background-color: #FFDE95;
     overflow: hidden;
 }
 
@@ -214,24 +214,29 @@ body{
     border-radius: 0% 100% 50% 50% / 100% 6% 10% 0%;
 }
 
+
 .flame, .flame:before, .flame2, .flame2:before, .flame3, .flame3:before{
     position: absolute;
-    border-radius: 80% 15% 55% 50% / 55% 15% 80% 50%;
+    border-radius: 10px 10px 10px 10px / 25px 25px 10px 10px;
+    transform-origin: 50% 90%;
+    
 }
 
 .flame, .flame3, .flame2{
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 35px;
     transform: rotate(-45deg);
     z-index: 4;
-    background-color: rgba(252, 191, 73, .8);
+    background-color: orange;
+    
     transition: .5s;
-    animation: flame 35s infinite;
+    animation: flicker 1s ease-in-out alternate infinite;
 }
 
 .flame{
     top: -40px;
+    left: 8px;
 }
 
 .flame2, .flame3{
@@ -239,27 +244,42 @@ body{
 }
 
 .flame2{
-    left: -50px;
+    left: -42px;
 }
 
 .flame3{
-    left: 50px;
+    left: 58px;
 }
 
 .flame:before, .flame2:before, .flame3:before{
     content: "";
-    background-color: rgba(247, 127, 0, .4);
-    width: 20px;
-    height: 20px;
+    background-color: orange;
+    width: 10px;
+    height: 30px;
     top: 5px;
-    left: 5px;
+    left: 2px;
 }
 
-@keyframes flame{
-    0%, 25%, 100% {transform: scaleY(1) rotate(-45deg);}
-    50%, 75% {transform: scaleY(1) rotate(-45deg); }
 
+
+@keyframes flicker {
+    0% {
+        transform: skewX(5deg);
+ }
+    25% {
+        transform: skewX(-5deg);
+ }
+    50% {
+        transform: skewX(10deg);
+        }
+    75% {
+        transform: skewX(-10deg);
+        }
+    100% {
+        transform: skewX(5deg);
+        }
 }
+
 
 .text, .text2 {
     position: absolute;
